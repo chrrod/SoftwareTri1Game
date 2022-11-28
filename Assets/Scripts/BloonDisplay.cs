@@ -7,7 +7,6 @@ public class BloonDisplay : MonoBehaviour
 {
 
     public Bloon bloon;
-    public Image type;
     public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
