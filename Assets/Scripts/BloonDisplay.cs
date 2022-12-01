@@ -17,7 +17,7 @@ public class BloonDisplay : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = bloon.bloon;
         gameObject.layer = 1;
-        speed = 5.0f;
+        speed = 2.0f;
         rb = GetComponent<Rigidbody2D>();
     }
 
