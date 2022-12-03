@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b5801d74a7843d68000cc7f2f2441e, type: 3}
+  m_Name: DartMonkeyScriptableObject
+  m_EditorClassIdentifier: 
+  towerName: 
+  range: 0
+  damage: 0
+  speed: 0
+  sprite: {fileID: 21300000, guid: fb485aa99795d4e5eb5699a9ac69f5eb, type: 3}
