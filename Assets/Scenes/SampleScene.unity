@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 903231757}
   m_Layer: 3
   m_Name: Bloon
-  m_TagString: Untagged
+  m_TagString: Bloon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 930593088}
   - component: {fileID: 930593087}
   - component: {fileID: 930593086}
+  - component: {fileID: 930593089}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -737,7 +738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerScriptableObject: {fileID: 11400000, guid: 3436a9c0f96644c7eaaa0dfe742e19a4, type: 2}
   spriteRenderer: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 1968045443825030991, guid: 16bcbeb12fb384a0c8f0d9209f63385a, type: 3}
+  col: {fileID: 0}
 --- !u!212 &930593087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -805,6 +807,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &930593089
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930593085}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10}
+  m_EdgeRadius: 0
 --- !u!1 &1142216903
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class TowerDisplay : MonoBehaviour
     public TowerScriptableObject towerScriptableObject;
     public SpriteRenderer spriteRenderer;
     public GameObject projectile;
+    public BoxCollider2D col; 
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,8 @@ public class TowerDisplay : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         spriteRenderer.sprite = towerScriptableObject.sprite;
         gameObject.layer = 10; 
-        StartCoroutine(spawnProjectile());
+        col = GetComponent<BoxCollider2D>(); 
+        col.size = new Vector2(towerScriptableObject.range, towerScriptableObject.range);
     }
 
     // Update is called once per frame
@@ -23,10 +25,20 @@ public class TowerDisplay : MonoBehaviour
         gameObject.layer = 1;
     }
 
-    private IEnumerator spawnProjectile() {
+    private IEnumerator spawnProjectile(GameObject trackingBloon) {
         while(true){
-            Instantiate(projectile, transform.position, transform.rotation);
-            yield return new WaitForSeconds(1);
+            GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+            Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
+            newProjectileScript.setAim(trackingBloon);
+            newProjectileScript.setDamage(towerScriptableObject.damage);
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Bloon") {
+            GameObject trackingBloon = collision.gameObject;
+            StartCoroutine(spawnProjectile(trackingBloon));
         }
     }
 }

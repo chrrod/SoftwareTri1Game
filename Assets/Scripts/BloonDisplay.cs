@@ -11,6 +11,8 @@ public class BloonDisplay : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
 
+    public int health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class BloonDisplay : MonoBehaviour
         gameObject.layer = 1;
         speed = 2.0f;
         rb = GetComponent<Rigidbody2D>();
+        health = bloon.health;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +41,16 @@ public class BloonDisplay : MonoBehaviour
         else if (collision.gameObject.tag == "left")
         {
             rb.velocity = new Vector2(-speed, 0);
+        }
+
+        if (collision.gameObject.tag == "Projectile") {
+            Debug.Log("Projectile collision detected");
+            Projectile projectileScript = collision.gameObject.GetComponent<Projectile>();
+            health -= projectileScript.damage;
+            Debug.Log(health);
+            if (health<=0){
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - up
   - left
   - right
+  - Projectile
   layers:
   - Default
   - TransparentFX
