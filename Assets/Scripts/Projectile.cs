@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        forwardVector = Vector3.Normalize(trackingBloon.transform.position - transform.position);
     }
 
     public void setAim(GameObject gameObject) {
@@ -42,12 +41,10 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bloon"&&trackingBloon!=null) {
-            Debug.Log("Projectile collision detected");
+        if (collision.gameObject.tag == "Bloon" && trackingBloon != null) {
             BloonDisplay bloon = collision.gameObject.GetComponent<BloonDisplay>();
             bloon.health -= damage;
-            Debug.Log(bloon.health);
-            if (bloon.health<=0){
+            if (bloon.health <= 0){
                 Destroy(collision.gameObject);
             }
             Destroy(gameObject);

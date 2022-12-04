@@ -102,7 +102,7 @@ MonoBehaviour:
   bloon: {fileID: 11400000, guid: 809c2286123223f4e8ad3294f032e81e, type: 2}
   spriteRenderer: {fileID: 0}
   speed: 0
-  rb: {fileID: 0}
+  rb: {fileID: 1347933430296075335}
   health: 0
   timeElapsed: 0
 --- !u!50 &1347933430296075335
