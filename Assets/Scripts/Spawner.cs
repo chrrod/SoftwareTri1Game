@@ -25,6 +25,6 @@ public class Spawner : MonoBehaviour
 
     void SpawnBloon()
     {
-        Instantiate(bloonArray[Random.Range(0, bloonArray.Length)]);
+        Instantiate(bloonArray[Random.Range(0, bloonArray.Length)]);//, transform.position, transform.rotation);
     }
 }

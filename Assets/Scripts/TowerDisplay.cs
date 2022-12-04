@@ -12,6 +12,8 @@ public class TowerDisplay : MonoBehaviour
     List<GameObject> bloonsList = new List<GameObject>();
     public GameObject trackingBloon;
     Coroutine spawnCoroutine;
+    public float rotationSpeed;
+    public float rotationModifier;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,8 @@ public class TowerDisplay : MonoBehaviour
         gameObject.layer = 10; 
         col = GetComponent<CircleCollider2D>(); 
         col.radius = towerScriptableObject.range/2;
+        rotationSpeed = 100;
+        rotationModifier  = 0;
     }
 
     // Update is called once per frame
@@ -29,16 +33,28 @@ public class TowerDisplay : MonoBehaviour
         gameObject.layer = 1;
     }
 
-    private IEnumerator spawnProjectile() {
+    private IEnumerator spawnProjectile() 
+    {
         while(true){
+            directionToLookAt();
             GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
             Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
             newProjectileScript.setAim(trackingBloon);
             newProjectileScript.setDamage(towerScriptableObject.damage);
             yield return new WaitForSeconds(0.3f);
-            if (trackingBloon == null){
+            if (trackingBloon == null)
+            {
                 StopCoroutine(spawnCoroutine);
             }
+        }
+    }
+
+    void directionToLookAt(){
+        if(trackingBloon!=null){
+            Vector3 vectorToTarget = trackingBloon.transform.position - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg-rotationModifier;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime*rotationSpeed);
         }
     }
 

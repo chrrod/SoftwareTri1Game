@@ -27,6 +27,11 @@ public class BloonDisplay : MonoBehaviour
         rb.velocity = new Vector2(0, -speed);;
     }
 
+    void Update()
+    {
+        gameObject.layer = 1;
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "down")
