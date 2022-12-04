@@ -43,14 +43,14 @@ public class BloonDisplay : MonoBehaviour
             rb.velocity = new Vector2(-speed, 0);
         }
 
-        if (collision.gameObject.tag == "Projectile") {
-            Debug.Log("Projectile collision detected");
-            Projectile projectileScript = collision.gameObject.GetComponent<Projectile>();
-            health -= projectileScript.damage;
-            Debug.Log(health);
-            if (health<=0){
-                Destroy(gameObject);
-            }
-        }
+        // if (collision.gameObject.tag == "Projectile") {
+        //     Debug.Log("Projectile collision detected");
+        //     Projectile projectileScript = collision.gameObject.GetComponent<Projectile>();
+        //     health -= projectileScript.damage;
+        //     Debug.Log(health);
+        //     if (health<=0){
+        //         Destroy(gameObject);
+        //     }
+        // }
     }
 }

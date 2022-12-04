@@ -25,5 +25,23 @@ public class Projectile : MonoBehaviour
     {
         Vector3 forwardVector = Vector3.Normalize(trackingBloon.transform.position - transform.position);
         transform.position += forwardVector * Time.deltaTime * 6.0f;
+        if(transform.position.x>5||transform.position.x<-5||transform.position.y>5||transform.position.y<-5)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bloon") {
+            Debug.Log("Projectile collision detected");
+            BloonDisplay bloon = collision.gameObject.GetComponent<BloonDisplay>();
+            bloon.health -= damage;
+            Debug.Log(bloon.health);
+            if (bloon.health<=0){
+                Destroy(collision.gameObject);
+            }
+            Destroy(gameObject);
+        }
     }
 }

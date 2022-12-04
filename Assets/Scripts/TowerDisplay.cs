@@ -7,7 +7,7 @@ public class TowerDisplay : MonoBehaviour
     public TowerScriptableObject towerScriptableObject;
     public SpriteRenderer spriteRenderer;
     public GameObject projectile;
-    public BoxCollider2D col; 
+    public CircleCollider2D col; 
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +15,8 @@ public class TowerDisplay : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         spriteRenderer.sprite = towerScriptableObject.sprite;
         gameObject.layer = 10; 
-        col = GetComponent<BoxCollider2D>(); 
-        col.size = new Vector2(towerScriptableObject.range, towerScriptableObject.range);
+        col = GetComponent<CircleCollider2D>(); 
+        col.radius = towerScriptableObject.range/2;
     }
 
     // Update is called once per frame

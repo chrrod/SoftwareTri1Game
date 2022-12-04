@@ -8,4 +8,5 @@ public class Bloon : ScriptableObject
     public int health;
     public int damage;
     public Sprite bloon;
+    public int value;
 }
