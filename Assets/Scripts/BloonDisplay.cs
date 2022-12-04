@@ -10,6 +10,7 @@ public class BloonDisplay : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public float speed;
     public Rigidbody2D rb;
+    public int value;
 
     public int health;
     public float timeElapsed = 0;
@@ -23,7 +24,7 @@ public class BloonDisplay : MonoBehaviour
         speed = 2.0f;
         rb = GetComponent<Rigidbody2D>();
         health = bloon.health;
-
+        value = bloon.value;
         rb.velocity = new Vector2(0, -speed);;
     }
 

@@ -102,6 +102,9 @@ MonoBehaviour:
   projectile: {fileID: 1445623834796185364, guid: 4eae7bc486cdea94ca1795a60071967b, type: 3}
   col: {fileID: 0}
   trackingBloon: {fileID: 0}
+  rotationSpeed: 0
+  rotationModifier: 0
+  cost: 600
 --- !u!61 &8396863303637425132
 BoxCollider2D:
   m_ObjectHideFlags: 0

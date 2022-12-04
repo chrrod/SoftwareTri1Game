@@ -14,12 +14,14 @@ public class TowerDisplay : MonoBehaviour
     Coroutine spawnCoroutine;
     public float rotationSpeed;
     public float rotationModifier;
+    public int cost;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         spriteRenderer.sprite = towerScriptableObject.sprite;
+        cost = towerScriptableObject.cost;
         gameObject.layer = 10; 
         col = GetComponent<CircleCollider2D>(); 
         col.radius = towerScriptableObject.range/2;

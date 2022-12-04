@@ -17,3 +17,4 @@ MonoBehaviour:
   damage: 4
   speed: 4
   sprite: {fileID: 21300000, guid: 9483d7cb55aec4679a5de9f3dcb0b768, type: 3}
+  cost: 800

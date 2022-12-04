@@ -12,7 +12,7 @@ public class UITowerDisplay : MonoBehaviour
     public Button button;
     public GameObject gameManager;
     public int pos;
-    public TowerManagement tm;
+    //public TowerManagement tm;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class UITowerDisplay : MonoBehaviour
         cost = uit.cost;
         upgradeCost = uit.upgradeCost;
         pos = uit.pos;
-        tm = gameManager.GetComponent<TowerManagement>();
+        //tm = gameManager.GetComponent<TowerManagement>();
         button.onClick.AddListener(TowerClicked);
     }
 
@@ -31,6 +31,6 @@ public class UITowerDisplay : MonoBehaviour
     }
     void TowerClicked()
     {
-        tm.setCurrentPos(pos);
+        TowerManagement.Instance.setCurrentPos(pos);
     }
 }

@@ -10,4 +10,5 @@ public class TowerScriptableObject : ScriptableObject
     public int damage;
     public int speed;
     public Sprite sprite;
+    public int cost;
 }

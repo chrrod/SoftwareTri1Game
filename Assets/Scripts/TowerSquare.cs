@@ -7,14 +7,14 @@ public class TowerSquare : MonoBehaviour, IPointerDownHandler
 {
 
     public GameObject eventSystem;
-    public TowerManagement tm;
+    //public TowerManagement tm;
     public GameObject[] towerPrefabs = new GameObject[5];
     public bool hasTower;
 
     // Start is called before the first frame update
     void Start()
     {
-        tm = eventSystem.GetComponent<TowerManagement>();
+        //tm = eventSystem.GetComponent<TowerManagement>();
         hasTower = false;
     }
 
@@ -29,8 +29,16 @@ public class TowerSquare : MonoBehaviour, IPointerDownHandler
          if(hasTower){
             Debug.Log("This space already has a tower");
         }else{
-            hasTower = true;
-            Instantiate(towerPrefabs[tm.currentpos], transform.position, transform.rotation);
+            TowerDisplay td = towerPrefabs[TowerManagement.Instance.getCurrentPos()].GetComponent<TowerDisplay>();
+            if(TowerManagement.Instance.getMoney()>=td.cost)
+            {
+                hasTower = true;
+                TowerManagement.Instance.changeMoney(-1*td.cost);
+                Instantiate(towerPrefabs[TowerManagement.Instance.getCurrentPos()], transform.position, transform.rotation);
+                
+            }else{
+                Debug.Log("Not enough moeny");
+            }
         }
     }
 }
