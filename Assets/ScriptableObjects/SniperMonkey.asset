@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93b5801d74a7843d68000cc7f2f2441e, type: 3}
-  m_Name: DartMonkeyScriptableObject
+  m_Name: SniperMonkey
   m_EditorClassIdentifier: 
-  towerName: NinjaMonkey
-  range: 5
-  damage: 1
-  speed: 1
-  sprite: {fileID: 21300000, guid: fb485aa99795d4e5eb5699a9ac69f5eb, type: 3}
+  towerName: SniperMonkey
+  range: 10
+  damage: 3
+  speed: 2
+  sprite: {fileID: 21300000, guid: 1f812b62eea5844e08bbd18a775617d0, type: 3}

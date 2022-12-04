@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b5801d74a7843d68000cc7f2f2441e, type: 3}
-  m_Name: DartMonkeyScriptableObject
+  m_Script: {fileID: 11500000, guid: 69b96335e3824084797adc2ae8e54163, type: 3}
+  m_Name: UIRocket
   m_EditorClassIdentifier: 
-  towerName: NinjaMonkey
-  range: 5
-  damage: 1
-  speed: 1
-  sprite: {fileID: 21300000, guid: fb485aa99795d4e5eb5699a9ac69f5eb, type: 3}
+  cost: 800
+  upgradeCost: 600
+  towerImage: {fileID: 0}
+  pos: 3

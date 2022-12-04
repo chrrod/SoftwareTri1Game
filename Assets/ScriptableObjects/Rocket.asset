@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93b5801d74a7843d68000cc7f2f2441e, type: 3}
-  m_Name: DartMonkeyScriptableObject
+  m_Name: Rocket
   m_EditorClassIdentifier: 
-  towerName: NinjaMonkey
-  range: 5
-  damage: 1
-  speed: 1
-  sprite: {fileID: 21300000, guid: fb485aa99795d4e5eb5699a9ac69f5eb, type: 3}
+  towerName: Rocket
+  range: 7
+  damage: 4
+  speed: 4
+  sprite: {fileID: 21300000, guid: 9483d7cb55aec4679a5de9f3dcb0b768, type: 3}
