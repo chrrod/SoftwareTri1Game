@@ -7,9 +7,11 @@ public class Projectile : MonoBehaviour
     GameObject trackingBloon;
     public int damage;
     private Vector3 forwardVector;
+    public float delay = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, delay);
     }
 
     public void setAim(GameObject gameObject) {

@@ -37,7 +37,7 @@ public class TowerSquare : MonoBehaviour, IPointerDownHandler
                 Instantiate(towerPrefabs[TowerManagement.Instance.getCurrentPos()], transform.position, transform.rotation);
                 
             }else{
-                Debug.Log("Not enough moeny");
+                Debug.Log("Not enough money");
             }
         }
     }

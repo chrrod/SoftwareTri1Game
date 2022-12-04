@@ -31,6 +31,10 @@ public class BloonDisplay : MonoBehaviour
     void Update()
     {
         gameObject.layer = 1;
+        if(transform.position.y<-5){
+            TowerManagement.Instance.changeHealth(value);
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

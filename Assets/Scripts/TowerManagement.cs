@@ -10,12 +10,14 @@ public class TowerManagement : MonoBehaviour
     //public Button[] buttons = new Button[5];
     private int currentpos;
     public int money;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
     {
         currentpos = 0;
         money = 1000;
+        health = 100;
     }
 
     // Update is called once per frame
@@ -52,5 +54,13 @@ public class TowerManagement : MonoBehaviour
     public int getMoney()
     {
         return money;
+    }
+
+    public void changeHealth(int x)
+    {
+        health-=x;
+        if(health<=0){
+            Debug.Log("Game Over");
+        }
     }
 }
