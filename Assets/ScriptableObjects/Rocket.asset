@@ -15,6 +15,7 @@ MonoBehaviour:
   towerName: Rocket
   range: 7
   damage: 4
-  speed: 4
+  speed: 0.5
   sprite: {fileID: 21300000, guid: 9483d7cb55aec4679a5de9f3dcb0b768, type: 3}
   cost: 800
+  upgradeCost: 700

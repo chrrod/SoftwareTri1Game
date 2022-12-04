@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TowerDisplay : MonoBehaviour
+public class TowerDisplay : MonoBehaviour, IPointerDownHandler
 {
     public TowerScriptableObject towerScriptableObject;
     public SpriteRenderer spriteRenderer;
     public GameObject projectile;
     public CircleCollider2D col; 
+    public int upgradeCost;
+    public bool hasUpgrade;
+    public UpgradeTower upgrade;
+    public float speed;
 
     List<GameObject> bloonsList = new List<GameObject>();
     public GameObject trackingBloon;
@@ -26,7 +31,10 @@ public class TowerDisplay : MonoBehaviour
         col = GetComponent<CircleCollider2D>(); 
         col.radius = towerScriptableObject.range/2;
         rotationSpeed = 100;
+        speed = towerScriptableObject.speed;
+        upgradeCost = towerScriptableObject.upgradeCost;
         rotationModifier  = 0;
+        hasUpgrade = false;
     }
 
     // Update is called once per frame
@@ -43,7 +51,7 @@ public class TowerDisplay : MonoBehaviour
             Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
             newProjectileScript.setAim(trackingBloon);
             newProjectileScript.setDamage(towerScriptableObject.damage);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(3.0f/speed);
             if (trackingBloon == null)
             {
                 StopCoroutine(spawnCoroutine);
@@ -99,6 +107,16 @@ public class TowerDisplay : MonoBehaviour
                     bloonsList.RemoveAt(i);
                 }
             }
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if(TowerManagement.Instance.getMoney()>=upgradeCost&&!hasUpgrade){
+            upgrade.Upgrade(gameObject);
+            TowerManagement.Instance.changeMoney(-1*upgradeCost);
+            hasUpgrade = true;
+            Debug.Log("Upgraded");
         }
     }
 }

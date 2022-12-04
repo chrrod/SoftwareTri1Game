@@ -8,7 +8,8 @@ public class TowerScriptableObject : ScriptableObject
     public string towerName; 
     public int range;
     public int damage;
-    public int speed;
+    public float speed;
     public Sprite sprite;
     public int cost;
+    public int upgradeCost;
 }

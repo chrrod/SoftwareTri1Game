@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b5801d74a7843d68000cc7f2f2441e, type: 3}
-  m_Name: SuperMonkey
+  m_Script: {fileID: 11500000, guid: 2d7cb23c7bdbc504a831d447d69d7861, type: 3}
+  m_Name: UpgradePower
   m_EditorClassIdentifier: 
-  towerName: SuperMonkey
-  range: 5
-  damage: 1
-  speed: 5
-  sprite: {fileID: 21300000, guid: c7b7df24d950a45548ed1bafc8ac0933, type: 3}
-  cost: 1000
-  upgradeCost: 900

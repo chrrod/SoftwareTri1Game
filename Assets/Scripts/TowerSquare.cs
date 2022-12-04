@@ -26,7 +26,7 @@ public class TowerSquare : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-         if(hasTower){
+        if(hasTower){
             Debug.Log("This space already has a tower");
         }else{
             TowerDisplay td = towerPrefabs[TowerManagement.Instance.getCurrentPos()].GetComponent<TowerDisplay>();
@@ -35,7 +35,8 @@ public class TowerSquare : MonoBehaviour, IPointerDownHandler
                 hasTower = true;
                 TowerManagement.Instance.changeMoney(-1*td.cost);
                 Instantiate(towerPrefabs[TowerManagement.Instance.getCurrentPos()], transform.position, transform.rotation);
-                
+                gameObject.layer = 0;
+                Destroy(gameObject);
             }else{
                 Debug.Log("Not enough money");
             }

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,6 +101,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   projectile: {fileID: 4020126624206422743, guid: 24db5f1e7963f9b40ac1f9404ecd2104, type: 3}
   col: {fileID: 0}
+  upgradeCost: 300
+  hasUpgrade: 0
+  upgrade: {fileID: 11400000, guid: 4dc9aa609e5a3ba419ca83b34fe843b6, type: 2}
+  speed: 0
   trackingBloon: {fileID: 0}
   rotationSpeed: 0
   rotationModifier: 0

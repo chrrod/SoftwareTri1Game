@@ -101,6 +101,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   projectile: {fileID: 1968045443825030991, guid: 16bcbeb12fb384a0c8f0d9209f63385a, type: 3}
   col: {fileID: 0}
+  upgradeCost: 100
+  hasUpgrade: 0
+  upgrade: {fileID: 11400000, guid: da45a9b3e3e662543a7dc53e5d730e0d, type: 2}
+  speed: 0
   trackingBloon: {fileID: 0}
   rotationSpeed: 0
   rotationModifier: 0
