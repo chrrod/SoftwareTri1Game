@@ -15,3 +15,4 @@ MonoBehaviour:
   health: 2
   damage: 2
   bloon: {fileID: 21300000, guid: 8398c48e75e196a47a63ac97a9f7317b, type: 3}
+  value: 2
