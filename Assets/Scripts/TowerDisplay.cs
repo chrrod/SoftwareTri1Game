@@ -44,10 +44,8 @@ public class TowerDisplay : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) {
         if ((collision.gameObject.tag == "Bloon")) {
-            Debug.Log("COLLISION OCCURRED");
             bloonsList.Add(collision.gameObject);
             if (trackingBloon==null){
-                Debug.Log("TRACKING BLOON IS NULL");
                 trackingBloon = collision.gameObject;
                 spawnCoroutine = StartCoroutine(spawnProjectile());
             }

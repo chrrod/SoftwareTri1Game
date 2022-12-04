@@ -24,7 +24,7 @@ public class BloonDisplay : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health = bloon.health;
 
-        timeElapsed += 1f * Time.deltaTime;
+        rb.velocity = new Vector2(0, -speed);;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -55,5 +55,6 @@ public class BloonDisplay : MonoBehaviour
         //         Destroy(gameObject);
         //     }
         // }
+        timeElapsed += 1.0f * Time.deltaTime;
     }
 }
