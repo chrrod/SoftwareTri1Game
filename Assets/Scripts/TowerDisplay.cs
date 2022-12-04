@@ -69,11 +69,9 @@ public class TowerDisplay : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other){
-        Debug.Log("EXIT");
         if (other.gameObject == trackingBloon) {
             if (bloonsList.Count==0){
                 trackingBloon = null;
-                Debug.Log("TRACKING BLOON LEFT");
             } else {
                 int lastBloon = FindLastBloon(bloonsList);
                 trackingBloon = bloonsList[lastBloon];
