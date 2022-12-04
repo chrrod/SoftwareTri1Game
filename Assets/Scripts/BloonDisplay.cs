@@ -12,6 +12,7 @@ public class BloonDisplay : MonoBehaviour
     public Rigidbody2D rb;
 
     public int health;
+    public float timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class BloonDisplay : MonoBehaviour
         speed = 2.0f;
         rb = GetComponent<Rigidbody2D>();
         health = bloon.health;
+
+        timeElapsed += 1f * Time.deltaTime;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

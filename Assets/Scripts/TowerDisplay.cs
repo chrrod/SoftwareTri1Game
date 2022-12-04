@@ -9,6 +9,10 @@ public class TowerDisplay : MonoBehaviour
     public GameObject projectile;
     public BoxCollider2D col; 
 
+    List<GameObject> bloonsList = new List<GameObject>();
+    public GameObject trackingBloon;
+    Coroutine spawnCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +29,62 @@ public class TowerDisplay : MonoBehaviour
         gameObject.layer = 1;
     }
 
-    private IEnumerator spawnProjectile(GameObject trackingBloon) {
+    private IEnumerator spawnProjectile() {
         while(true){
             GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
             Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
             newProjectileScript.setAim(trackingBloon);
             newProjectileScript.setDamage(towerScriptableObject.damage);
             yield return new WaitForSeconds(0.3f);
+            if (trackingBloon == null){
+                StopCoroutine(spawnCoroutine);
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Bloon") {
-            GameObject trackingBloon = collision.gameObject;
-            StartCoroutine(spawnProjectile(trackingBloon));
+        if ((collision.gameObject.tag == "Bloon")) {
+            Debug.Log("COLLISION OCCURRED");
+            bloonsList.Add(collision.gameObject);
+            if (trackingBloon==null){
+                Debug.Log("TRACKING BLOON IS NULL");
+                trackingBloon = collision.gameObject;
+                spawnCoroutine = StartCoroutine(spawnProjectile());
+            }
+        }
+    }
+
+    private int FindLastBloon(List<GameObject> bloonsList) {
+        int last = 0;
+        float lastTime = bloonsList[0].GetComponent<BloonDisplay>().timeElapsed; 
+        for (int i=0; i<bloonsList.Count; i++){
+            float iTime = bloonsList[i].GetComponent<BloonDisplay>().timeElapsed;
+            if (iTime>lastTime){
+                lastTime = iTime;
+                last = i;
+            }
+            
+        }
+        return last;
+    }
+
+    void OnTriggerExit2D(Collider2D other){
+        Debug.Log("EXIT");
+        if (other.gameObject == trackingBloon) {
+            if (bloonsList.Count==0){
+                trackingBloon = null;
+                Debug.Log("TRACKING BLOON LEFT");
+            } else {
+                int lastBloon = FindLastBloon(bloonsList);
+                trackingBloon = bloonsList[lastBloon];
+                bloonsList.RemoveAt(lastBloon);
+            }
+        } else {
+            for (int i=0; i<bloonsList.Count; i++){
+                if (bloonsList[i]==other.gameObject){
+                    bloonsList.RemoveAt(i);
+                }
+            }
         }
     }
 }
