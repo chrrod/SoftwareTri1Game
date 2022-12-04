@@ -5,16 +5,18 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     
-    
+    int current_wave = 0;
 
     public GameObject[] bloonArray = new GameObject[4];
-    public float startDelay = 2.0f;
-    public float repeatRate = 2.0f;
+    public float startDelay = 1.0f;
+    public float waveRepeatDelay = 5.0f;
+    int bloonsPerWave = 20;
+    float bloonRepeatDelay = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnBloon", startDelay, repeatRate);
+        StartCoroutine("SendWave");
     }
 
     // Update is called once per frame
@@ -23,8 +25,31 @@ public class Spawner : MonoBehaviour
         
     }
 
-    void SpawnBloon()
+    IEnumerator SendWave() {
+        while (true){
+            if (current_wave<=4){
+                yield return StartCoroutine(SpawnBloons(bloonsPerWave));
+            } else {
+                yield return StartCoroutine(SpawnBloons(current_wave * current_wave + 5));
+            }
+            current_wave+=1;
+            yield return new WaitForSeconds(waveRepeatDelay);
+        }
+    }
+
+    IEnumerator SpawnBloons(int number)
     {
-        Instantiate(bloonArray[Random.Range(0, bloonArray.Length)]);//, transform.position, transform.rotation);
+        Debug.Log(number);
+        int i = 0;
+        while(i < number)
+        {
+            Debug.Log(i);
+            Instantiate(bloonArray[current_wave % 4]);
+            i+=1;
+            if (current_wave!=0){
+                bloonRepeatDelay = 0.5f / current_wave; 
+            }
+            yield return new WaitForSeconds(bloonRepeatDelay);
+        }
     }
 }
