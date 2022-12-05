@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UITowerDisplay : MonoBehaviour
+public class UITowerDIsplay : MonoBehaviour
 {
 
     public UITower uit;
@@ -29,7 +29,7 @@ public class UITowerDisplay : MonoBehaviour
     {
         
     }
-    void TowerClicked()
+    public void TowerClicked()
     {
         TowerManagement.Instance.setCurrentPos(pos);
     }
