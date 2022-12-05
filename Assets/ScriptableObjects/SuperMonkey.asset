@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: SuperMonkey
   range: 5
   damage: 1
-  speed: 1
+  speed: 0.1
   sprite: {fileID: 21300000, guid: c7b7df24d950a45548ed1bafc8ac0933, type: 3}
   cost: 1000
   upgradeCost: 900
