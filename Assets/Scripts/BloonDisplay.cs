@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+enum Directions 
+{
+    LEFT = -1,
+    RIGHT = 1,
+    UP = 1,
+    DOWN = -1
+}
+
 public class BloonDisplay : MonoBehaviour
 {
 
@@ -42,19 +50,19 @@ public class BloonDisplay : MonoBehaviour
     {
         if (collision.gameObject.tag == "down")
         {
-            rb.velocity = new Vector2(0, -speed);
+            rb.velocity = new Vector2(0, (float) Directions.DOWN * speed);
         }
         else if (collision.gameObject.tag == "up")
         {
-            rb.velocity = new Vector2(0, speed);
+            rb.velocity = new Vector2(0, (float) Directions.UP * speed);
         }
         else if (collision.gameObject.tag == "right")
         {
-            rb.velocity = new Vector2(speed, 0);
+            rb.velocity = new Vector2((float) Directions.RIGHT * speed, 0);
         }
         else if (collision.gameObject.tag == "left")
         {
-            rb.velocity = new Vector2(-speed, 0);
+            rb.velocity = new Vector2((float) Directions.LEFT * speed, 0);
         }
 
         // if (collision.gameObject.tag == "Projectile") {
