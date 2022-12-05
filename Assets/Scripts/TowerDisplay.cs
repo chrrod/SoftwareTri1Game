@@ -20,6 +20,7 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
     public float rotationSpeed;
     public float rotationModifier;
     public int cost;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
         col.radius = towerScriptableObject.range/2;
         rotationSpeed = 100;
         speed = towerScriptableObject.speed;
+        damage = towerScriptableObject.damage;
         upgradeCost = towerScriptableObject.upgradeCost;
         rotationModifier  = 0;
         hasUpgrade = false;
@@ -50,8 +52,8 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
             GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
             Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
             newProjectileScript.setAim(trackingBloon);
-            newProjectileScript.setDamage(towerScriptableObject.damage);
-            yield return new WaitForSeconds(3.0f/speed);
+            newProjectileScript.setDamage(damage);
+            yield return new WaitForSeconds(speed);
             if (trackingBloon == null)
             {
                 StopCoroutine(spawnCoroutine);
