@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TowerManagement : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class TowerManagement : MonoBehaviour
     {
         currentpos = 0;
         money = 1000;
-        health = 100;
+        health = 3;
     }
 
     // Update is called once per frame
@@ -56,11 +57,16 @@ public class TowerManagement : MonoBehaviour
         return money;
     }
 
+    public int getHealth()
+    {
+        return health;
+    }
+
     public void changeHealth(int x)
     {
         health-=x;
         if(health<=0){
-            Debug.Log("Game Over");
+            SceneManager.LoadScene("RetryGame");
         }
     }
 }

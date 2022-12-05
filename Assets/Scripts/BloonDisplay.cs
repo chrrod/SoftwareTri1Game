@@ -36,10 +36,6 @@ public class BloonDisplay : MonoBehaviour
             TowerManagement.Instance.changeHealth(value);
             Destroy(gameObject);
         }
-        if(transform.position.y<-5)
-        {
-            SceneManager.LoadScene("RetryGame");
-        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
