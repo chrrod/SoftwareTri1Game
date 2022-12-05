@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bloon" && trackingBloon != null) {
+        if (collision.gameObject.tag == "Bloon" ){//&& trackingBloon != null) {
             BloonDisplay bloon = collision.gameObject.GetComponent<BloonDisplay>();
             bloon.health -= damage;
             if (bloon.health <= 0){
