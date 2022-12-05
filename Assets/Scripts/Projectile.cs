@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
         // }
         // Vector3 forwardVector = Vector3.Normalize(trackingBloon.transform.position - transform.position);
         // transform.position += forwardVector * Time.deltaTime * 6.0f;
-        if(transform.position.x>5||transform.position.x<-5||transform.position.y>5||transform.position.y<-5)
+        if(transform.position.x>7||transform.position.x<-5||transform.position.y>5||transform.position.y<-5)
         {
             Destroy(gameObject);
         }
