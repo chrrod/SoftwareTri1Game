@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
             bloon.health -= damage;
             if (bloon.health <= 0){
                 Destroy(collision.gameObject);
-                TowerManagement.Instance.changeMoney(bloon.value);
+                TowerManagement.Instance.changeMoney(150);
             }
             Destroy(gameObject);
         }
