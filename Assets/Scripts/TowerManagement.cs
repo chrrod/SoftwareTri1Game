@@ -9,7 +9,7 @@ public class TowerManagement : MonoBehaviour
     private static TowerManagement _instance;
     public static TowerManagement Instance{ get { return _instance;}}
     //public Button[] buttons = new Button[5];
-    private int currentpos;
+    public int currentpos;
     public int money;
     public int health;
 

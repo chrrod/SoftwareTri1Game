@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UITowerDIsplay : MonoBehaviour
+public class UITowerDisplay : MonoBehaviour
 {
 
     public UITower uit;
     public int cost;
     public int upgradeCost;
     public Button button;
-    public GameObject gameManager;
+    //public GameObject gameManager;
     public int pos;
-    public TowerManagement tm;
+    //public TowerManagement tm;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class UITowerDIsplay : MonoBehaviour
         cost = uit.cost;
         upgradeCost = uit.upgradeCost;
         pos = uit.pos;
-        tm = gameManager.GetComponent<TowerManagement>();
+        //tm = gameManager.GetComponent<TowerManagement>();
         button.onClick.AddListener(TowerClicked);
     }
 
@@ -31,6 +31,6 @@ public class UITowerDIsplay : MonoBehaviour
     }
     public void TowerClicked()
     {
-        tm.setCurrentPos(pos);
+        TowerManagement.Instance.setCurrentPos(pos);
     }
 }

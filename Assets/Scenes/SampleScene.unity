@@ -391,9 +391,7 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 0
   button: {fileID: 20090794}
-  gameManager: {fileID: 1999468095}
   pos: 0
-  tm: {fileID: 0}
 --- !u!1 &30039131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,9 +1098,7 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 0
   button: {fileID: 150811779}
-  gameManager: {fileID: 1999468095}
-  pos: 0
-  tm: {fileID: 0}
+  pos: 3
 --- !u!114 &150811779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6663,9 +6659,7 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 0
   button: {fileID: 1076225090}
-  gameManager: {fileID: 1999468095}
-  pos: 0
-  tm: {fileID: 0}
+  pos: 3
 --- !u!114 &1076225090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7460,9 +7454,7 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 0
   button: {fileID: 1195471788}
-  gameManager: {fileID: 1999468095}
-  pos: 0
-  tm: {fileID: 0}
+  pos: 4
 --- !u!114 &1195471788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10402,9 +10394,7 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 0
   button: {fileID: 1673068493}
-  gameManager: {fileID: 1999468095}
-  pos: 0
-  tm: {fileID: 0}
+  pos: 1
 --- !u!114 &1673068493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11115,14 +11105,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1610470924}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -474.44263, y: 281.4867}
+  m_AnchoredPosition: {x: -8.3, y: 218.9}
   m_SizeDelta: {x: 298.3147, y: 49.0266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834044195
@@ -12324,6 +12313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701e3e82977a88b41816f8b878e5c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentpos: 0
   money: 0
   health: 0
 --- !u!1 &2039620742
