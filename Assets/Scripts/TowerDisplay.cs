@@ -43,17 +43,19 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
     void Update()
     {
         gameObject.layer = 1;
+        if (trackingBloon!=null){
+            directionToLookAt();
+        }
     }
 
     private IEnumerator spawnProjectile() 
     {
         while(true){
-            directionToLookAt();
+            yield return new WaitForSeconds(speed);
             GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
             Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
             newProjectileScript.setAim(trackingBloon);
             newProjectileScript.setDamage(damage);
-            yield return new WaitForSeconds(speed);
             if (trackingBloon == null)
             {
                 StopCoroutine(spawnCoroutine);
