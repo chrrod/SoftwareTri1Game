@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BloonDisplay : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class BloonDisplay : MonoBehaviour
         if(transform.position.y<-5){
             TowerManagement.Instance.changeHealth(value);
             Destroy(gameObject);
+        }
+        if(transform.position.y<-5)
+        {
+            SceneManager.LoadScene("RetryGame");
         }
     }
 
