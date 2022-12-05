@@ -57,6 +57,7 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
             if (trackingBloon == null)
             {
                 StopCoroutine(spawnCoroutine);
+                break;
             }
         }
     }
