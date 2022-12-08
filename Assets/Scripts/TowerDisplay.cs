@@ -43,19 +43,17 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
     void Update()
     {
         gameObject.layer = 1;
-        if (trackingBloon!=null){
-            directionToLookAt();
-        }
     }
 
     private IEnumerator spawnProjectile() 
     {
         while(true){
-            yield return new WaitForSeconds(speed);
+            directionToLookAt();
             GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
             Projectile newProjectileScript = newProjectile.GetComponent<Projectile>();
             newProjectileScript.setAim(trackingBloon);
             newProjectileScript.setDamage(damage);
+            yield return new WaitForSeconds(speed);
             if (trackingBloon == null)
             {
                 StopCoroutine(spawnCoroutine);
@@ -102,6 +100,12 @@ public class TowerDisplay : MonoBehaviour, IPointerDownHandler
             if (bloonsList.Count==0){
                 trackingBloon = null;
             } else {
+                for(int i = 0; i<bloonsList.Count; i++){
+                    if(bloonsList[i]==null){
+                        bloonsList.RemoveAt(i);
+                        i--;
+                    }
+                }
                 int lastBloon = FindLastBloon(bloonsList);
                 trackingBloon = bloonsList[lastBloon];
                 bloonsList.RemoveAt(lastBloon);

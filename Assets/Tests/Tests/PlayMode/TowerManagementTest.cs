@@ -8,7 +8,7 @@ public class TowerManagementTest
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void TowerManagementTestSimplePasses()
+    public void TowerManagementCurrentPosTest()
     {
         // Use the Assert class to test conditions
 
@@ -17,13 +17,30 @@ public class TowerManagementTest
         
         TowerManagement.Instance.setCurrentPos(2);
         Assert.IsTrue(TowerManagement.Instance.getCurrentPos() == 2);
+    }
+
+    [Test]
+    public void TowerManagementMoneyTest()
+    {
+        // Use the Assert class to test conditions
+
+        //GameObject go = GameObject.Find("EventSystem");
+        //TowerManagement tm = go.GetComponent<TowerManagement>();
         
         int x = TowerManagement.Instance.getMoney();
         TowerManagement.Instance.changeMoney(25);
         Assert.IsTrue(TowerManagement.Instance.getMoney() == x+25);
+    }
 
+    [Test]
+    public void TowerManagementHealthTest()
+    {
+        // Use the Assert class to test conditions
+
+        //GameObject go = GameObject.Find("EventSystem");
+        //TowerManagement tm = go.GetComponent<TowerManagement>();
         
-        x = TowerManagement.Instance.getHealth();
+        int x = TowerManagement.Instance.getHealth();
         TowerManagement.Instance.changeHealth(25);
         Assert.IsTrue(TowerManagement.Instance.getHealth() == x-25);
     }

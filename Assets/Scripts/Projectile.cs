@@ -49,8 +49,10 @@ public class Projectile : MonoBehaviour
             BloonDisplay bloon = collision.gameObject.GetComponent<BloonDisplay>();
             bloon.health -= damage;
             if (bloon.health <= 0){
-                Destroy(collision.gameObject);
-                TowerManagement.Instance.changeMoney(150);
+                if(collision!=null){
+                    Destroy(collision.gameObject);  
+                    TowerManagement.Instance.changeMoney(150);  
+                }                
             }
             Destroy(gameObject);
         }

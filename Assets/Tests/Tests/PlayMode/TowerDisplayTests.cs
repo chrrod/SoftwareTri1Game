@@ -34,7 +34,7 @@ public class TowerDisplayTests
         yield return new WaitForSeconds(3.0f);
         GameObject tower = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/RocketTower"));
         GameObject bloon = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/RedBloon"));
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(15.0f);
         Assert.IsTrue(bloon==null);
     }
 
