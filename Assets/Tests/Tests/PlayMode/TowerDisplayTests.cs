@@ -16,7 +16,7 @@ public class TowerDisplayTests
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator TowerRotates()
+    public IEnumerator TowerDisplayTestTowerRotates()
     {
         // Use the Assert class to test conditions.
         // Use yield to skip a frame.
@@ -29,7 +29,7 @@ public class TowerDisplayTests
     }
 
     [UnityTest]
-    public IEnumerator TowerShoots()
+    public IEnumerator TowerDisplayTestTowerShootsAtAndDestroysBloons()
     {
         yield return new WaitForSeconds(3.0f);
         GameObject tower = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/RocketTower"));

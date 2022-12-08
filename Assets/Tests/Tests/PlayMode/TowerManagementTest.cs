@@ -8,7 +8,7 @@ public class TowerManagementTest
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void TowerManagementCurrentPosTest()
+    public void TowerManagemenTestCurrentPosSetAndGet()
     {
         // Use the Assert class to test conditions
 
@@ -20,7 +20,7 @@ public class TowerManagementTest
     }
 
     [Test]
-    public void TowerManagementMoneyTest()
+    public void TowerManagementMoneyTestGetAndChange()
     {
         // Use the Assert class to test conditions
 
@@ -33,7 +33,7 @@ public class TowerManagementTest
     }
 
     [Test]
-    public void TowerManagementHealthTest()
+    public void TowerManagementHealthTestGetAndChange()
     {
         // Use the Assert class to test conditions
 
